@@ -9,6 +9,6 @@ basedir=/where/the/forest/root/is/stored
 
 ### 2. Read from pu14 file and reconstruct jets from the constituents. Also extract the substructre observables
 ```
-cd /your/directory/path/of/the/container
+cd /your/project/path/
 singularity exec jetml_gpu_latest.sif ./doStructure.sh -i /where/you/store/the/pu14file/outputname.pu14 -o /where/you/want/to/store/the/training/data/training_data.root -n 2000
 ```
