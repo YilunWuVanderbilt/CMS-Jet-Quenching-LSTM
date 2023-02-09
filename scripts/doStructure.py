@@ -191,7 +191,6 @@ except:
 idx=0
 nevent = 0
 weight_sum = 0
-res = []
 
 for entry in itr:
     if nevent == 2000:
@@ -202,6 +201,7 @@ for entry in itr:
         weight[0] = entry.weight
     except:
         weight[0] = 1
+    res = []
     for i in range(len(entry.matchingID)):
         if (Particle.from_pdgid(entry.pdg[i]).mass) is None: continue # some particles, like tau, does not have mass info. 
         p=Particle.from_pdgid(entry.pdg[i]) # get the particle information with PDG package. 
