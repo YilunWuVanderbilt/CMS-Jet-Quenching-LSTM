@@ -128,7 +128,7 @@ print('Constituent Subtraction [max_distance, alpha, ghost_area]: [%.1f, %.1f, %
 
 # jet clustering with cs
 def do_cs_event_wide(full_event, ptmin=100.):
-    max_eta = 3.
+    max_eta = 2.
 
     # background estimator
     bge = fj.GridMedianBackgroundEstimator(max_eta, 0.5)
