@@ -17,3 +17,5 @@ Example of testing the compiled interfacing files:
 >>> trkEff = TrkEff2018PbPb("general", "", False, "./Table/")
 TrkEff2018PbPb class opening in general tracks mode!
 >>> correction = trkEff.getEfficiency(1.0, 1.0, 20)
+
+You can also run the "GetEfficiencyMap.py" to plot the PbPb efficiency map (eta, centrality) with different pt. 
