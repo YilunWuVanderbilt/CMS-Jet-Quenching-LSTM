@@ -7,6 +7,7 @@ export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
 source /workspace/root/bin/thisroot.sh
 
 Compiling lines once you have the .i interfacing file: 
+swig -c++ -python TrkEff2017pp.i
 g++ `root-config --cflags` `root-config --libs` -std=c++11 -fPIC -fno-lto -c TrkEff2018PbPb_wrap.cxx -o TrkEff2018PbPb_wrap.o  `python3-config --includes` -ITrackingEfficiencyconfig 
 g++ `root-config --cflags` `root-config --libs` -std=c++11 -fPIC -fno-lto -c TrkEff2018PbPb_wrap.cxx -o TrkEff2018PbPb_wrap.o  `python3-config --includes` 
 g++ -std=c++11 -fPIC -fno-lto TrkEff2018PbPb.o TrkEff2018PbPb_wrap.o -shared -o _TrkEff2018PbPb.so `python3-config --ldflags`  `python3-config --libs` -lstdc++ -L/workspace/root/lib -lCore –lRIO 
