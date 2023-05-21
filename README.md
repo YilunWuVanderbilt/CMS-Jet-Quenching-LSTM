@@ -1,3 +1,6 @@
+# Environment
+To pull the container, see "https://github.com/ustcllh/JetML/tree/27482d7d258a01e1b7197c25ce4f4fbca89baa34"
+
 # CMS-Jet-Quenching-LSTM
 Using LSTM model to indentify different levels of jet quenching. 
 
