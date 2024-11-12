@@ -1,7 +1,7 @@
 
 # Delphes Converter
 
-We use the .pu14 file system to achieve full events consisting of both jewel hard process particles with thermal bkg particles. In this directory there are two steps: 1) get the Delphes root from GEN hepmc; 2) read the Delphes root produced from step 1) and output .pu14 files. Repeat the 2 steps for jewel-med, jewel-vac, and thermal bkg hepmc filesso the detector effects are applied to them separately. Later we reconstruct jets from this full events with a thermal bkg subtraction process. 
+We use the .pu14 file system to achieve full events consisting of both jewel hard process particles with thermal bkg particles. In this directory there are two steps: 1) get the Delphes root from GEN hepmc; 2) read the Delphes root produced from step 1 and output .pu14 files. Repeat the 2 steps for jewel-med, jewel-vac, and thermal bkg hepmc filesso the detector effects are applied to them separately. Later we reconstruct jets from this full events with a thermal bkg subtraction process. 
 
 ### 1. From hepmc file to DELPHES root
 
