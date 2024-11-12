@@ -120,9 +120,8 @@ import sys
 fastjet_dir='/workspace/fastjet/lib/python3.6/site-packages'
 sys.path.append(fastjet_dir)
 import fastjet as fj
-from src.JetML.Event_EFlow import *
-#from src.JetML.Event_GEN import * //If you are recontructing jets from Generator level
-#from src.JetML.Event_Track import * //If you are recontructing jets from Tracks 
+from src.JetML.Event_EFlow import * #If you are recontructing jets from EFlow-Neutral particles and EFlow-trackss
+#from src.JetML.EFlow_pTetaphiM import * #If you are recontructing jets from Generator level or tracks
 
 from src.JetTree.JetTree import *
 
