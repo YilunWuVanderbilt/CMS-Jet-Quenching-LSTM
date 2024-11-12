@@ -103,7 +103,7 @@ import sys
 fastjet_dir='/workspace/fastjet/lib/python3.6/site-packages'
 sys.path.append(fastjet_dir)
 import fastjet as fj
-from src.JetML.Event import *
+from src.JetML.Event_CMS import *
 from src.JetTree.JetTree import *
 
 # constituent subtraction python module
