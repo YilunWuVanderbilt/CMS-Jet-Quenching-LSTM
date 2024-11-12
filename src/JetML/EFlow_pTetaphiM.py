@@ -81,11 +81,10 @@ class Reader:
     def pseudojet(particle):
         particle1 = TLorentzVector()
         p = [float(item) for item in particle]
-        e = pow(p[0], 2) + pow(p[1], 2) + pow(p[2], 2) + pow(p[3], 2)
-        e = sqrt(e) #Construct the four-vector(px, py, pz, E) from (px, py, pz, Mass) see fast-jet doc
-        temp = fj.PseudoJet(p[0], p[1], p[2], e)
+        particle1.SetPtEtaPhiM(p[0], p[1], p[2], p[3])
+        temp = fj.PseudoJet(particle1.Px(), particle1.Py(),particle1.Pz(), particle1.E())
         temp.set_user_index(int(p[4]))
-       
+        
         return temp
 
 
