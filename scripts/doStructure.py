@@ -106,9 +106,9 @@ def set_branches(tr):
 
 
 set_branches(tr)
-set_branches(trcsj)
-set_branches(trcse)
-set_branches(trics)
+#set_branches(trcsj) #csj subtraction method
+set_branches(trcse) #cse subtraction: constituent subtraction--the best subtracion method
+#set_branches(trics) #ics subtraction method
 
 
 ########################################
@@ -120,7 +120,10 @@ import sys
 fastjet_dir='/workspace/fastjet/lib/python3.6/site-packages'
 sys.path.append(fastjet_dir)
 import fastjet as fj
-from src.JetML.Event import *
+from src.JetML.Event_EFlow import *
+#from src.JetML.Event_GEN import * //If you are recontructing jets from Generator level
+#from src.JetML.Event_Track import * //If you are recontructing jets from Tracks 
+
 from src.JetTree.JetTree import *
 
 # constituent subtraction python module
@@ -160,7 +163,7 @@ def do_clustering(hard_event, ptmin=100.):
 def do_cs_jet_by_jet(full_event, ptmin=100.):
     # clustering with ghosts and get the jets
     jet_def = fj.JetDefinition(fj.antikt_algorithm, 0.4)
-    ghost_RapMax = 2.
+    ghost_RapMax = 3.
     ghost_spec = fj.GhostedAreaSpec(ghost_RapMax, 1, ghost_area)
     area_def = fj.AreaDefinition(fj.active_area_explicit_ghosts, ghost_spec)
     clust_seq_full = fj.ClusterSequenceArea(full_event, jet_def, area_def)
@@ -199,7 +202,7 @@ def do_cs_jet_by_jet(full_event, ptmin=100.):
 
 # jet clustering with cs
 def do_cs_event_wide(full_event, ptmin=100.):
-    max_eta = 2.
+    max_eta = 3.
 
     # background estimator
     bge = fj.GridMedianBackgroundEstimator(max_eta, 0.5)
@@ -235,7 +238,7 @@ def do_cs_event_wide(full_event, ptmin=100.):
 
 # jet clustering with ics
 def do_cs_iterative(full_event, ptmin=100.):
-    max_eta = 2.
+    max_eta = 3.
 
     bge = fj.GridMedianBackgroundEstimator(3., 0.5)
     bge.set_particles(full_event)
