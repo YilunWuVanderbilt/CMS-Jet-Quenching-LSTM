@@ -11,6 +11,6 @@ Submit `slurm_GetDelphes` to ACCRE, which runs the command line in `GetDelphes.s
 
 Submit `slurm_readDelphes` to ACCRE, which runs the  `ReadDelphes_XXX.py` that generate pu14 files.
 
-The .pu14 saves the particle four-vector reading from the DELPHS root. For example, you can choose to run `ReadDelphes_GenParticle.py` to save `[px, py, pz, E]` from Gen branch, or run `ReadDelphes_Track.py` to save `[pT, eta, phi, Mass]` from Track branch, or run `ReadDelphes_EFlow.py` to save `[ET, eta,phi, E]` from EFlow branch--depending on which detector module you want to use. 
+The .pu14 saves the particle four-vector reading from the DELPHS root. For example, you can choose to run `ReadDelphes_GenParticle.py` to save `[px, py, pz, Mass]` from Gen branch, or run `ReadDelphes_Track.py` to save `[pT, eta, phi, Mass]` from Track branch, or run `ReadDelphes_EFlow.py` to save `[ET, eta,phi, Energy]` from EFlow branch--depending on which detector module you want to use. 
 
 This step may requires to be run within singuarity container `jetml_gpu_latest.sif` that is installed in `/home/wuy55/JetML`. You can pull the container to somewhere else. To pull the container, see "https://github.com/ustcllh/JetML/tree/27482d7d258a01e1b7197c25ce4f4fbca89baa34"
