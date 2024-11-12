@@ -38,10 +38,10 @@ from array import array
 
 output = TFile(args.output, 'recreate')
 
-tr = TTree('jet', 'jet')
-trcsj = TTree('csjjet', 'cs jet by jet')
-trcse = TTree('csejet', 'cs event wide')
-trics = TTree('icsjet', 'cs iterative')
+tr = TTree('jet', 'jet') #no bkg particles in this tree (if you wants to exclude the thermal bkg effects)
+trcsj = TTree('csjjet', 'cs jet by jet') #csj subtraction method
+trcse = TTree('csejet', 'cs event wide') #cse subtraction method
+trics = TTree('icsjet', 'cs iterative') #cse subtraction method
 
 
 maxn = 100
@@ -299,20 +299,21 @@ except:
 jr = JetFinder(algorithm=fj.cambridge_algorithm, R=999., ptmin=0)
 
 # mix event
-#def mix_event(dict_input, dict_bkg, enable_pedestal_cut=False):
-def mix_event(dict_input, enable_pedestal_cut=False):
+def mix_event(dict_input, dict_bkg, enable_pedestal_cut=False):
     hard_event = cs.PseudoJetVec()
     full_event = cs.PseudoJetVec()
 
     hard_event.clear()
     full_event.clear()
     for p in dict_input['0']:
-        if enable_pedestal_cut and p.pt()<1.:
-            continue
+        #if enable_pedestal_cut and p.pt()<0.55.:
+        #    continue
         hard_event.push_back(p)
         full_event.push_back(p)
-    #for p in dict_bkg['1']:
-    #    full_event.push_back(p)
+    for p in dict_bkg['1']:
+        #if enable_pedestal_cut and p.pt()<0.55.:
+        #    continue
+        full_event.push_back(p)
 
     return hard_event, full_event
 
@@ -336,13 +337,12 @@ try:
 except:
     nevent_max = 100
 
-while dict_input['0']:# and dict_bkg['1']:
+while dict_input['0'] and dict_bkg['1']:
     if nevent == nevent_max:
         break
 
     event[0] = nevent
-    #hard_event, full_event = mix_event(dict_input, dict_bkg, args.s)
-    hard_event, full_event = mix_event(dict_input, args.s) #Remove embedding background when the input already has a background.
+    hard_event, full_event = mix_event(dict_input, dict_bkg, args.s)
     ghosts = PseudoJetVec()
 
     for ghost in dict_input['-1']:
