@@ -9,6 +9,7 @@ Using LSTM model to indentify different levels of jet quenching.
 basedir=/where/the/forest/root/is/stored/
 ./forest_to_pu14 $basedir/forestrootname.root $basedir/outputname.pu14
 ```
+### 1.1 For Delphes root generation and pu14 conversion, see `README` in `DelphesConverter`
 
 ### 2. Read from pu14 file and reconstruct jets from the constituents. Also extract the substructre observables
 ```
