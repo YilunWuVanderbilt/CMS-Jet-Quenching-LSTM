@@ -3,7 +3,7 @@
 
 We use the .pu14 file system to achieve full events consisting of both jewel hard process particles with thermal bkg particles. Later we reconstruct jets from this full events with a thermal bkg subtraction process. 
 
-The .pu14 saves the particle four-vector reading from `[px, py, pz, E]` for Gen branch, or `[pT, eta, phi, Mass]` for Track branch, or `[ET, eta,phi, E]` for CMS EFlow branch--depending on which detector module you want to use) 
+The .pu14 saves the particle four-vector reading from the DELPHS root. For example, you can choose to run `ReadDelphes_GenParticle.py` to save `[px, py, pz, E]` from Gen branch, or run `ReadDelphes_Track.py` to save `[pT, eta, phi, Mass]` from Track branch, or run `ReadDelphes_Track.py` to save `[ET, eta,phi, E]` from CMS EFlow branch--depending on which detector module you want to use. 
 ```
 basedir=/store/user/yilun/jewel/eventfiles
 
