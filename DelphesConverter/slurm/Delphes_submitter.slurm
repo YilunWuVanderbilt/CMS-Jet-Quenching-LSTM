@@ -13,6 +13,6 @@ hepmcdir=$basedir/hepmc
 
 cd /home/wuy55/JetML
 
-singularity exec jetml_gpu_latest.sif python3 /home/wuy55/hep_converter/DelphesConverter/ReadDelphes_GenParticle.py -i $basedir/root/jewel_R_0.root -o $basedir/pu14/jewel_R_0.pu14
+singularity exec jetml_gpu_latest.sif python3 /home/wuy55/hep_converter/DelphesConverter/ReadDelphes_EFlow.py -i $basedir/root/jewel_R_0.root -o $basedir/pu14/jewel_R_0.pu14
 
 
